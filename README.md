@@ -45,18 +45,6 @@ Run in order. Later steps load what earlier steps saved.
 
 ---
 
-## VS Code or Anaconda?
-
-**Use VS Code.** Reasons:
-
-- You are pushing to GitHub, and VS Code has Git built in (no command line needed)
-- Recruiters expect `.py` files in a repo, and VS Code is the natural editor for that
-- Anaconda/Jupyter is better for exploring, but produces `.ipynb` notebooks that are messier in a repo
-
-**Practical setup:** install Anaconda for the Python environment (it ships with
-pandas, numpy, scikit-learn and matplotlib already), then open the folder in
-VS Code and select the Anaconda interpreter. Best of both.
-
 ```bash
 # in VS Code terminal
 python --version          # should be 3.9 or higher
@@ -67,23 +55,7 @@ python generate_data.py
 In VS Code press `Ctrl+Shift+P` → "Python: Select Interpreter" → pick your
 Anaconda/base environment.
 
-### Pushing to GitHub
 
-```bash
-cd home_loan_project
-git init
-git add .
-git commit -m "Home loan propensity and next-best-product engine"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/home-loan-engine.git
-git push -u origin main
-```
-
-Two things before you push:
-- Add a `.gitignore` containing `*.pkl` and `__pycache__/` (model files are large and regenerable)
-- Keep the ⚠️ synthetic-data warning at the top of your repo README. It shows judgment, and any banking interviewer will notice it.
-
----
 
 ## The models, explained simply
 
@@ -330,14 +302,4 @@ An A/B test. Half the leads go to the model-ranked list, half to the existing ca
 
 ---
 
-## How to pitch this internally
 
-Don't open with the model. Open with the question:
-
-> "We know what our customers pay in rent, how much they save each month, and
-> roughly how much they keep at other banks. Are we using any of that to decide
-> who we call about home loans?"
-
-Then propose a small pilot: 200 customers, one branch, one month, measured
-against the existing calling list. Show the lift chart. Bring up compliance
-yourself before anyone else does.
