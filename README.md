@@ -265,7 +265,7 @@ pot from money leaving our own account. That's our own data, not theirs.
 
 ---
 
-## Honest limitations (say these before anyone asks)
+## Honest limitations 
 
 1. **The data is synthetic.** The relationships were written into the generator, so the scores reflect the design, not proof the idea works in reality.
 2. **Identifying rent from transactions is genuinely hard.** Most Indian rent goes by UPI or NEFT to a landlord's personal account with no label. Standing instructions and amount-plus-date regularity help, but false positives (money to family, chit funds) are real.
@@ -277,29 +277,5 @@ pot from money leaving our own account. That's our own data, not theirs.
 
 ---
 
-## Likely interview questions
-
-**Why Logistic Regression over Gradient Boosting?**
-It scored higher here, and it's explainable. In regulated lending, being able to state *why* a customer was targeted matters as much as accuracy.
-
-**What's the difference between the classification and regression models here?**
-Classification predicts a category (will they take a loan — yes/no), measured with AUC. Regression predicts a number (how much they save per month), measured with R² and MAE.
-
-**Why is clustering "unsupervised"?**
-There's no correct answer to learn from. KMeans groups customers by similarity on its own; we interpret and name the groups afterwards.
-
-**Why not use accuracy as the metric?**
-The target is 24% positive. A model predicting "no" for everyone scores 76% accuracy and is useless.
-
-**How did you avoid data leakage?**
-Split first, then fit imputation and scaling inside a `Pipeline` so the median and scaler are learned from training data only. Cross-validation runs the whole pipeline inside each fold.
-
-**What is `random_state` doing?**
-It fixes the shuffle so the same rows land in train and test every run. `test_size` decides *how many* rows go to test; `random_state` decides *which* ones.
-
-**How would you measure whether this actually worked?**
-An A/B test. Half the leads go to the model-ranked list, half to the existing calling list. Compare conversion over one quarter. Model metrics are not business proof.
-
----
 
 
