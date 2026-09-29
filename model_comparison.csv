@@ -1,0 +1,5 @@
+Model,Test AUC,CV AUC,CV std,Precision,Recall,F1
+Logistic Regression,0.784,0.786,0.008,0.458,0.7,0.554
+Gradient Boosting,0.759,0.778,0.011,0.638,0.292,0.401
+Random Forest,0.741,0.756,0.012,0.458,0.553,0.501
+Decision Tree,0.707,0.707,0.007,0.393,0.594,0.473
